@@ -5,30 +5,28 @@
   🌐 <a href="https://showlab.github.io/Kiwi-Edit">Project Page</a>&nbsp | 📑 <a href="#quick-start">Paper</a>&nbsp |  🤗 <a href="https://huggingface.co/collections/linyq/kiwi-edit">Models(🧨)</a> | 🤗 <a href="https://huggingface.co/datasets/linyq/kiwi_edit_training_data">Datasets</a>
 </p>
 
-Kiwi-Edit is a unified framework for:
-- single-frame image editing
-- multi-frame video editing
-- reference-guided editing with `ref_image`
-- staged training (`image -> image+video -> image+video+reference`)
-- both native-pipeline and Diffusers-style inference
-
+Kiwi-Edit is a versatile video editing framework bulid upon on mllm encoder and video dit for:
+- instruction video editing
+- reference image + instruction video editing
 
 
 ## Quick Start
 
-**System Requirements**
+**Environment Requirements**
 
-- Python 3.10 + CUDA 12.8 environment (see `install_env.sh`)
-- PyTorch 2.7, DeepSpeed, FlashAttention, Accelerate
+- Python 3.10 + CUDA 12.8 environment
+- PyTorch==2.7, Accelerate
+- For training: DeepSpeed, FlashAttention
 
+### Full Environment Installation
 
 **1) Prepare environment and base weights:**
 
 ```bash
-bash install_env.sh
+bash install_full_env.sh
 ```
 
-**2) Run a quick demo on one video:**
+**2) Run a quick test on demo video:**
 
 ```bash
 python demo.py \
@@ -37,51 +35,38 @@ python demo.py \
   --prompt "Remove the monkey." \
   --save_path ./output/demo_output.mp4
 ```
-
-
-## Installation
-
-### Option A: one-command setup
+### Diffusers Inference Environment Installation
+**1) Prepare environment:**
 
 ```bash
-bash install_env.sh
-```
-
-This script creates `conda` env `diffsynth`, installs required dependencies, and downloads:
-- `Wan-AI/Wan2.2-TI2V-5B`
-- `Wan-AI/Wan2.1-T2V-14B`
-
-### Option B: manual setup
-
-```bash
-conda create -n diffsynth python=3.10 -y
-conda activate diffsynth
-
+# Create conda environment
+conda create -n diffusers python=3.10 -y
+conda activate diffusers
+# Install PyTorch 2.7 with CUDA
 pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu128
-pip install -e .
-conda install mpi4py -y
-pip install deepspeed transformers==4.57.0 huggingface-hub==0.34 wandb
-pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.7cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
-
-mkdir -p models/Wan-AI/
-hf download Wan-AI/Wan2.2-TI2V-5B --local-dir ./models/Wan-AI/Wan2.2-TI2V-5B
-hf download Wan-AI/Wan2.1-T2V-14B --local-dir ./models/Wan-AI/Wan2.1-T2V-14B
+pip install diffusers decord einops accelerate transformers==4.57.0 opencv-python av
 ```
 
-## Repository Layout
+or
 
-- `train.py`: training entrypoint
-- `infer.py`: inference/evaluation with native Wan pipeline
-- `infer_diffusers.py`: inference/evaluation with Diffusers pipeline
-- `demo.py`: single-video quick demo
-- `scripts/`: reproducible training command templates
-- `demo_data/`: example image/video/reference metadata and media
-- `utils/convert_diffusers/`: checkpoint conversion utilities
-- `eval_openve_gemini.py`, `eval_refvie_gemini.py`: Gemini-based evaluation helpers
+```bash
+bash install_diffusers_env.sh
+```
 
-## Dataset Format
+**2) Run a quick test on demo video:**
 
-All training metadata uses CSV and paths are resolved relative to `--dataset_base_path`.
+```bash
+python diffusers_demo.py \
+    --video_path ./demo_data/video/source/0005e4ad9f49814db1d3f2296b911abf.mp4 \
+    --prompt "Remove the monkey." \
+    --save_path output.mp4 --model_path linyq/kiwi-edit-5b-instruct-only-diffusers
+```
+
+## Training and Evaluation
+
+### Dataset Format
+
+All training metadata uses CSV, we provide demo data in the repo:
 
 - Image stage: `src_video`, `tgt_video`, `prompt`  
   Example: `demo_data/image_demo_training_set.csv`
@@ -90,62 +75,36 @@ All training metadata uses CSV and paths are resolved relative to `--dataset_bas
 - Reference-video stage: `src_video`, `tgt_video`, `ref_image`, `prompt`  
   Example: `demo_data/video_ref_demo_training_set.csv`
 
-## Training and Evaluation
+For full data training, please refer to [DATASET.md](DATASET.md).
 
 ### Training
 
-Use the provided scripts in `scripts/`:
-
-- `scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage1_img_1024x1024_1f.sh`
-- `scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage2_img_vid_600x600_81f.sh`
-- `scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage2_img_vid_720x1280_81f.sh`
-- `scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage3_refvid_720x1280_81f.sh`
-- `scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage3_img_vid_refvid_720x1280_81f.sh`
-- `scripts/run_wan2.1_t2v_14b_qwen25vl_3b_stage1_img_1024x1024_1f.sh`
-- `scripts/run_wan2.1_t2v_14b_qwen25vl_3b_stage2_img_vid_600x600_49f.sh`
-- `scripts/run_wan2.1_t2v_14b_qwen25vl_3b_stage2_img_vid_720x1280_49f.sh`
-
-Example:
+Use the provided scripts in `scripts/`. Example:
 
 ```bash
 bash scripts/run_wan2.2_ti2v_5b_qwen25vl_3b_stage3_img_vid_refvid_720x1280_81f.sh
 ```
 
-### Native inference (`infer.py`)
 
+### Evaluation
+For benchmark inferece example:
 ```bash
 python infer.py \
-  --ckpt_path ./ckpt/<your_checkpoint>.safetensors \
-  --bench openve \
-  --num_rank 1 \
-  --rank 0 \
+  --ckpt_path path_to_ckpt \
+  --bench openve \ # or refvie
   --max_frame 81 \
   --max_pixels 921600 \
   --save_dir ./infer_results/exp_name/
 ```
+For score evaluation see `eval_openve_gemini.py` and `eval_refvie_gemini.py`. 
 
-Supported `--bench` values:
-- `openve`
-- `refvie`
-
-### Diffusers inference (`infer_diffusers.py`)
+Example:
 
 ```bash
-python infer_diffusers.py \
-  --model_path linyq/kiwi-edit-5b-diffusers \
-  --bench openve \
-  --num_rank 1 \
-  --rank 0 \
-  --max_frame 81 \
-  --save_dir ./infer_results/diffusers_exp/
+python eval_openve_gemini.py --video_paths path_to_videos
 ```
 
-### Evaluation helpers
-
-- `eval_openve_gemini.py`
-- `eval_refvie_gemini.py`
-
-## Additional Notes
+### Additional Notes
 
 - Review and secure API key handling before running Gemini-based evaluation scripts.
 - For Diffusers conversion, see `utils/convert_diffusers/README.md`.
