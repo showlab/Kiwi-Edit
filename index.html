@@ -4,19 +4,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance</title>
-    <meta name="description" content="KiwiEdit is a unified framework for high-quality video editing that supports text instructions, reference images, and their combination.">
+    <meta name="description" content="Kiwi-Edit is a unified framework for high-quality video editing that supports text instructions, reference images, and their combination.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="robots" content="all">
     <meta content="en_EN" property="og:locale">
     <meta content="website" property="og:type">
-    <meta content="KiwiEdit" property="og:title">
+    <meta content="Kiwi-Edit" property="og:title">
     <meta content="Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance" property="og:description">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance">
 
     <link rel="stylesheet" type="text/css" media="all" href="webpage/assets/stylesheets/main_free.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="webpage/kiwiedit.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="webpage/Kiwi-Edit.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
     <link href="webpage/assets/fontawesome-free-6.6.0-web/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
@@ -69,7 +69,7 @@
                         <a href="https://sites.google.com/view/showlab/home" class="author-link">ShowLab, National University of Singapore</a> &nbsp;&nbsp;
                     </p>
                     <p class="abstract">
-                        We present <b>KiwiEdit</b>, a unified and <b>fully open-source</b> framework for instruction-guided and reference-guided video editing using natural language. KiwiEdit supports high-quality, temporally consistent edits across global and local tasks, and delivers strong open-model performance at <b>720p resolution</b> with released code, models, and datasets.
+                        We present <b>Kiwi-Edit</b>, a unified and <b>fully open-source</b> framework for instruction-guided and reference-guided video editing using natural language. Kiwi-Edit supports high-quality, temporally consistent edits across global and local tasks, and delivers strong open-model performance at <b>720p resolution</b> with released code, models, and datasets.
                     </p>
 
                     <div class="info">
@@ -113,7 +113,7 @@
     <div class="container blog main">
         <h1>Instruction-Guided Video Editing</h1>
         <p class="text">
-            KiwiEdit supports a wide range of text instruction-based video editing tasks. Select a category below to view results.
+            Kiwi-Edit supports a wide range of text instruction-based video editing tasks. Select a category below to view results.
         </p>
     </div>
 
@@ -521,7 +521,7 @@
     <div class="container blog main">
         <h1>Reference Image-Guided Video Editing</h1>
         <p class="text">
-            KiwiEdit can transfer visual attributes from a reference image to the target video. The model extracts background or subject information from the reference image while preserving the original motion and structure of the video.
+            Kiwi-Edit can transfer visual attributes from a reference image to the target video. The model extracts background or subject information from the reference image while preserving the original motion and structure of the video.
         </p>
     </div>
 
@@ -692,7 +692,7 @@
 
         <h2>OpenVE-Bench</h2>
         <p class="text">
-            We evaluate on OpenVE-Bench, assessed by Gemini-2.5-Pro, across five editing categories: Global Style, Background Change, Local Change, Local Remove, and Local Add. KiwiEdit (Stage-3 Instruct-Reference) achieves the best overall score among open-source methods.
+            We evaluate on OpenVE-Bench, assessed by Gemini-2.5-Pro, across five editing categories: Global Style, Background Change, Local Change, Local Remove, and Local Add. Kiwi-Edit (Stage-3 Instruct-Reference) achieves the best overall score among open-source methods.
         </p>
 
         <div class="results-table-wrapper">
@@ -900,7 +900,7 @@
         <h1>Methodology</h1>
         <h2>Architecture Design</h2>
         <p class="text">
-            KiwiEdit combines a Multimodal LLM and a video diffusion transformer. Given a source video, an editing instruction, and an optional reference image, the model produces temporally consistent edited videos with controllable appearance and structure.
+            Kiwi-Edit combines a Multimodal LLM and a video diffusion transformer. Given a source video, an editing instruction, and an optional reference image, the model produces temporally consistent edited videos with controllable appearance and structure.
         </p>
 
         <ul class="contribution-list">
@@ -912,7 +912,7 @@
 
     <div class="container blog extra-large">
         <div class="method-figure">
-            <img src="webpage/images/model.png" alt="KiwiEdit architecture diagram">
+            <img src="webpage/images/model.png" alt="Kiwi-Edit architecture diagram">
         </div>
         <p class="caption">
             <b>Architecture overview.</b> The MLLM provides semantic guidance (instruction and reference context tokens), while the DiT receives both semantic context and direct structural controls from source/reference latents for controllable video editing.
@@ -922,13 +922,13 @@
     <div class="container blog main">
         <h2>Training Curriculum</h2>
         <p class="text">
-            We train KiwiEdit with a simple three-stage curriculum: alignment, instruction tuning, and reference-guided fine-tuning. This progressive strategy improves stability and enables strong performance across instruction-only, reference-only, and joint editing settings.
+            We train Kiwi-Edit with a simple three-stage curriculum: alignment, instruction fine-tuning, and reference-guided fine-tuning. This progressive strategy improves stability and enables strong performance across instruction and reference editing settings.
         </p>
 
         <ul class="contribution-list">
             <li><b>Stage 1:</b> Align multimodal representations between the MLLM and the diffusion backbone.</li>
             <li><b>Stage 2:</b> Scale instruction-guided editing with large image/video data.</li>
-            <li><b>Stage 3:</b> Add reference-guided training for precise visual control (up to 81 video frames).</li>
+            <li><b>Stage 3:</b> Add reference-guided training for precise visual control.</li>
         </ul>
     </div>
 
@@ -952,18 +952,17 @@
     <div class="container blog main">
         <h1>Citation</h1>
         <p class="text">
-            If you find KiwiEdit useful for your research, please cite our paper:
+            If you find Kiwi-Edit useful for your research, please cite our paper:
         </p>
-<pre><code class="plaintext">@misc{kiwiedit2026,
-      title={Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance}, 
-      author={Yiqi Lin and Guoqiang Liang and Ziyun Zeng and Zechen Bai and Yanzhe Chen and Mike Zheng Shou},
-      year={2026},
-      eprint={2603.02175},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2603.02175}, 
-}
-}</code></pre>
+        <pre><code class="plaintext">@misc{Kiwi-Edit2026,
+            title={Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance}, 
+            author={Yiqi Lin and Guoqiang Liang and Ziyun Zeng and Zechen Bai and Yanzhe Chen and Mike Zheng Shou},
+            year={2026},
+            eprint={2603.02175},
+            archivePrefix={arXiv},
+            primaryClass={cs.CV},
+            url={https://arxiv.org/abs/2603.02175}, 
+        }</code></pre>
     </div>
 
 
@@ -971,14 +970,15 @@
     <footer>
         <div class="container">
             <p>
-                This website is built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a>, designed by <a href="https://shikun.io/">Shikun Liu</a>. &nbsp; KiwiEdit - 2025.
+                This website is built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a>, designed by <a href="https://shikun.io/">Shikun Liu</a>. &nbsp;
             </p>
+            <p>Kiwi-Edit - 2026.</p>
         </div>
     </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="webpage/kiwiedit.js"></script>
+    <script src="webpage/Kiwi-Edit.js"></script>
 </body>
 </html>
