@@ -9,6 +9,160 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
 - instruction video editing
 - reference image + instruction video editing
 
+## Visualization Demos
+
+<div class="gif-switcher">
+  <input type="radio" name="gif-sample" id="sample1" checked>
+  <input type="radio" name="gif-sample" id="sample2">
+  <input type="radio" name="gif-sample" id="sample3">
+  <input type="radio" name="gif-sample" id="sample4">
+  <input type="radio" name="gif-sample" id="sample5">
+  <input type="radio" name="gif-sample" id="sample6">
+  <input type="radio" name="gif-sample" id="sample7">
+
+  <div class="gif-controls">
+    <label for="sample1">Style</label>
+    <label for="sample2">Replace</label>
+    <label for="sample3">Add</label>
+    <label for="sample4">Remove</label>
+    <label for="sample5">Background Replace</label>
+    <label for="sample6">Subject Reference</label>
+    <label for="sample7">Background Reference</label>
+  </div>
+
+  <div class="gif-slides">
+    <div class="gif-slide slide1">
+      <img src="webpage/gifs/0007_global_style_Apply_the_dynamic_ae_concat.gif" alt="0007 example gif">
+      <p class="gif-caption">"Apply the dynamic aesthetic of abstract art to this video."</p>
+    </div>
+    <div class="gif-slide slide2">
+      <img src="webpage/gifs/0083_local_change_Replace_the_sofa_wit_70_concat.gif" alt="0083 example gif">
+      <p class="gif-caption">"Replace the sofa with a classic brown leather sofa with visible stitching."</p>
+    </div>
+    <div class="gif-slide slide3">
+      <img src="webpage/gifs/0095_local_change_Add_a_classic_brown_concat.gif" alt="0095 example gif">
+      <p class="gif-caption">"Add a classic brown fedora hat to the boy's head."</p>
+    </div>
+    <div class="gif-slide slide4">
+      <img src="webpage/gifs/0191_local_remove_Remove_the_person_we_concat.gif" alt="0191 example gif">
+      <p class="gif-caption">"Remove the person wearing a light blue shirt and dark pants from the entire video sequence."</p>
+    </div>
+    <div class="gif-slide slide5">
+      <img src="webpage/gifs/0145_background_change_Replace_the_backgrou_concat.gif" alt="0145 example gif">
+      <p class="gif-caption">"Replace the background with a lively urban garden scene during winter."</p>
+    </div>
+    <div class="gif-slide slide6">
+      <div class="gif-with-ref">
+        <div class="ref-slot">
+          <img class="ref-image" src="webpage/images/41_shape_heart_sunglasses_1328_1328_1.png" alt="Reference image placeholder">
+        </div>
+        <img src="webpage/gifs/0125_background_change_Replace_the_backgrou_concat.gif" alt="0125 example gif">
+      </div>
+      <p class="gif-caption">"Add a pair of iconic red heart-shaped sunglasses to the girl's face."</p>
+    </div>
+    <div class="gif-slide slide7">
+      <div class="gif-with-ref">
+        <div class="ref-slot">
+          <img class="ref-image" src="webpage/images/0_mountain_ink_1664_928_0.png" alt="Reference image placeholder">
+        </div>
+        <img src="webpage/gifs/1_Replace_th_gym-ball_concat.gif" alt="Replace gym-ball example gif">
+      </div>
+      <p class="gif-caption">"Replace the background with a Chinese ink painting, featuring a large golden mountain peak rising above swirling clouds."</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .gif-switcher input[type="radio"] {
+    display: none;
+  }
+  .gif-controls {
+    margin: 8px 0 12px;
+  }
+  .gif-controls label {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 4px 10px;
+    border: 1px solid #d0d7de;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .gif-slide {
+    display: none;
+    margin: 0 auto;
+  }
+  .gif-slide img {
+    display: block;
+    width: auto;
+    max-width: 720px;
+    max-height: 720px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+  .gif-with-ref {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ref-slot {
+    min-width: 220px;
+    min-height: 220px;
+    padding: 8px;
+    border: 1px dashed #d0d7de;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f8fa;
+  }
+  .ref-slot .ref-image {
+    max-height: 224px;
+    max-width: 224px;
+    width: auto;
+  }
+  .gif-caption {
+    margin: 8px 0 0;
+    color: #57606a;
+    font-size: 14px;
+    text-align: center;
+  }
+  #sample1:checked ~ .gif-slides .slide1 {
+    display: block;
+  }
+  #sample2:checked ~ .gif-slides .slide2 {
+    display: block;
+  }
+  #sample3:checked ~ .gif-slides .slide3 {
+    display: block;
+  }
+  #sample4:checked ~ .gif-slides .slide4 {
+    display: block;
+  }
+  #sample5:checked ~ .gif-slides .slide5 {
+    display: block;
+  }
+  #sample6:checked ~ .gif-slides .slide6 {
+    display: block;
+  }
+  #sample7:checked ~ .gif-slides .slide7 {
+    display: block;
+  }
+  #sample1:checked ~ .gif-controls label[for="sample1"],
+  #sample2:checked ~ .gif-controls label[for="sample2"],
+  #sample3:checked ~ .gif-controls label[for="sample3"],
+  #sample4:checked ~ .gif-controls label[for="sample4"],
+  #sample5:checked ~ .gif-controls label[for="sample5"],
+  #sample6:checked ~ .gif-controls label[for="sample6"],
+  #sample7:checked ~ .gif-controls label[for="sample7"] {
+    background: #24292e;
+    border-color: #24292e;
+    color: #fff;
+  }
+</style>
+
 ## News
 
 - [2026-03-03] Code and model released.
