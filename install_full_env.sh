@@ -12,4 +12,3 @@ pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.
 pip install transformers==4.57.0 huggingface-hub==0.34 wandb
 mkdir -p models/Wan-AI/
 hf download Wan-AI/Wan2.2-TI2V-5B --local-dir ./models/Wan-AI/Wan2.2-TI2V-5B
-hf download Wan-AI/Wan2.1-T2V-14B --local-dir ./models/Wan-AI/Wan2.1-T2V-14B
