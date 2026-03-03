@@ -9,7 +9,7 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
 - instruction video editing
 - reference image + instruction video editing
 
-## Visualization Demos
+<!-- ## Visualization Demos
 
 <div class="gif-switcher">
   <input type="radio" name="gif-sample" id="sample1" checked>
@@ -161,7 +161,7 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
     border-color: #24292e;
     color: #fff;
   }
-</style>
+</style> -->
 
 ## News
 
