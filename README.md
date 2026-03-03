@@ -13,31 +13,31 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
 
 <details open>
   <summary><strong>Style</strong></summary>
-  <p align="center"><img src="webpage/gifs/0007_global_style_Apply_the_dynamic_ae_concat.gif" alt="Style example gif" height="384"></p>
+  <p align="center"><img src="webpage/gifs/0007_global_style_Apply_the_dynamic_ae_concat.gif" alt="Style example gif" height="480"></p>
   <p align="center"><em>"Apply the dynamic aesthetic of abstract art to this video."</em></p>
 </details>
 
 <details>
   <summary><strong>Replace</strong></summary>
-  <p align="center"><img src="webpage/gifs/0083_local_change_Replace_the_sofa_wit_70_concat.gif" alt="Replace example gif" height="280"></p>
+  <p align="center"><img src="webpage/gifs/0083_local_change_Replace_the_sofa_wit_70_concat.gif" alt="Replace example gif" height="320"></p>
   <p align="center"><em>"Replace the sofa with a classic brown leather sofa with visible stitching."</em></p>
 </details>
 
 <details>
   <summary><strong>Add</strong></summary>
-  <p align="center"><img src="webpage/gifs/0095_local_change_Add_a_classic_brown_concat.gif" alt="Add example gif" height="280"></p>
+  <p align="center"><img src="webpage/gifs/0095_local_change_Add_a_classic_brown_concat.gif" alt="Add example gif" height="320"></p>
   <p align="center"><em>"Add a classic brown fedora hat to the boy's head."</em></p>
 </details>
 
 <details>
   <summary><strong>Remove</strong></summary>
-  <p align="center"><img src="webpage/gifs/0191_local_remove_Remove_the_person_we_concat.gif" alt="Remove example gif" height="384"></p>
+  <p align="center"><img src="webpage/gifs/0191_local_remove_Remove_the_person_we_concat.gif" alt="Remove example gif" height="480"></p>
   <p align="center"><em>"Remove the person wearing a light blue shirt and dark pants from the entire video sequence."</em></p>
 </details>
 
 <details>
   <summary><strong>Background Replace</strong></summary>
-  <p align="center"><img src="webpage/gifs/0145_background_change_Replace_the_backgrou_concat.gif" alt="Background replace example gif" height="280"></p>
+  <p align="center"><img src="webpage/gifs/0145_background_change_Replace_the_backgrou_concat.gif" alt="Background replace example gif" height="320"></p>
   <p align="center"><em>"Replace the background with a lively urban garden scene during winter."</em></p>
 </details>
 
@@ -46,7 +46,7 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
   <table align="center">
     <tr align="center">
       <td align="center"><img src="webpage/images/41_shape_heart_sunglasses_1328_1328_1.png" alt="Reference image" height="224"></td>
-      <td align="center"><img src="webpage/gifs/0125_background_change_Replace_the_backgrou_concat.gif" alt="Subject reference example gif" height="384"></td>
+      <td align="center"><img src="webpage/gifs/0125_background_change_Replace_the_backgrou_concat.gif" alt="Subject reference example gif" height="480"></td>
     </tr>
   </table>
   <p align="center"><em>"Add a pair of iconic red heart-shaped sunglasses to the girl's face."</em></p>
@@ -56,8 +56,8 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
   <summary><strong>Background Reference</strong></summary>
   <table align="center">
     <tr align="center">
-      <td align="center"><img src="webpage/images/0_mountain_ink_1664_928_0.png" alt="Reference image" height="224"></td>
-      <td align="center"><img src="webpage/gifs/1_Replace_th_gym-ball_concat.gif" alt="Background reference example gif" height="280"></td>
+      <td align="center"><img src="webpage/images/0_mountain_ink_1664_928_0.png" alt="Reference image" height="128"></td>
+      <td align="center"><img src="webpage/gifs/1_Replace_th_gym-ball_concat.gif" alt="Background reference example gif" height="320"></td>
     </tr>
   </table>
   <p align="center"><em>"Replace the background with a Chinese ink painting, featuring a large golden mountain peak rising above swirling clouds."</em></p>
