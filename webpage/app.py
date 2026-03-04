@@ -241,6 +241,19 @@
 
 # if __name__ == "__main__":
 #     demo.queue().launch(share=True)
+def concat_video(video1, video2, bg=(0, 0, 0)):
+    """Concatenate two videos side by side."""
+    cat_video = []
+    for img1, img2 in zip(video1, video2):
+        w1, h1 = img1.size
+        w2, h2 = img2.size
+        H = max(h1, h2)
+        W = w1 + w2
+        canvas = Image.new("RGB", (W, H), bg)
+        canvas.paste(img1, (0, 0))
+        canvas.paste(img2, (w1, 0))
+        cat_video.append(canvas)
+    return cat_video
 import gradio as gr
 
 def greet(name, intensity):
