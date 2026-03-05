@@ -2,7 +2,7 @@
 <span style="color: #6fa8dc;">K</span><span style="color: #6fb051;">i</span><span style="color: #e06766;">w</span><span style="color: #f6b26b;">i</span>-Edit: Versatile Video Editing via Instruction and Reference Guidance
 </h1>
 <p align="center">
-  🌐 <a href="https://showlab.github.io/Kiwi-Edit">Project Page</a>&nbsp | 📑 <a href=https://arxiv.org/abs/2603.02175>Paper</a>&nbsp |  🤗 <a href="https://huggingface.co/collections/linyq/kiwi-edit">Models(🧨)</a> | 🤗 <a href="https://huggingface.co/datasets/linyq/kiwi_edit_training_data">Datasets</a>
+  🌐 <a href="https://showlab.github.io/Kiwi-Edit">Project Page</a>&nbsp | 📑 <a href=https://arxiv.org/abs/2603.02175>Paper</a>&nbsp |  🤗 <a href="https://huggingface.co/collections/linyq/kiwi-edit">Models(🧨)</a> | 🤗 <a href="https://huggingface.co/datasets/linyq/kiwi_edit_training_data">Datasets</a> | 🤗 <a href="https://huggingface.co/spaces/linyq/KiwiEdit">Demo </a> 
 </p>
 
 Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a video DiT for:
@@ -64,7 +64,7 @@ Kiwi-Edit is a versatile video editing framework built on an MLLM encoder and a 
 </details>
 
 ## News
-
+- [2026-03-05] HuggingFace Demo released. Please check in [here](https://huggingface.co/spaces/linyq/KiwiEdit)!
 - [2026-03-03] Code and model released.
 
 ## Quick Start
