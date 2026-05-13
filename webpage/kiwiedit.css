@@ -606,7 +606,7 @@
 }
 
 .results-table-wrapper.wide {
-  width: 60vw;
+  width: min(99vw, 1500px);
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -641,6 +641,19 @@
   background: #fafbfc;
 }
 
+.results-table-wrapper tr.closed-source-row td {
+  background-color: #fbf0ea !important;
+}
+
+.results-table-wrapper tr.ours-row td {
+  background-color: #E6F2FF !important;
+  border-bottom-color: #d7e7f8;
+}
+
+.results-table-wrapper tr.section-start td {
+  border-top: 2px solid #c5d1dc;
+}
+
 .results-table-wrapper tr[style*="background-color:#E6F2FF"] td,
 .results-table-wrapper tr[style*="background-color: #E6F2FF"] td {
   background-color: #E6F2FF !important;
@@ -654,8 +667,13 @@
 
 .results-table-wrapper .second-best {
   text-decoration: underline;
-  text-decoration-color: rgba(42, 122, 184, 0.4);
+  text-decoration-color: currentColor;
   text-underline-offset: 2px;
+}
+
+.results-table-wrapper .method-citation {
+  color: #0a50a1;
+  white-space: nowrap;
 }
 
 /* ======================== Section Divider ===================== */

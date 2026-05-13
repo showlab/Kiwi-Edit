@@ -692,28 +692,39 @@
         <h1>Quantitative Results</h1>
 
         <h2>OpenVE-Bench</h2>
-        <p class="text">
-            We evaluate on OpenVE-Bench, assessed by Gemini-2.5-Pro, across five editing categories: Global Style, Background Change, Local Change, Local Remove, and Local Add. Kiwi-Edit (Stage-3 Instruct-Reference) achieves the best overall score among open-source methods.
+        <p class="text table-caption">
+            <em>Table 2.</em> OpenVE-Bench results evaluated on Gemini-2.5-Pro. Orange rows denote closed-source models and are excluded when selecting the best and second-best scores; gray rows denote open-source baselines and blue rows denote our variants. Bold and underlined scores indicate the best and second-best results among non-closed-source methods, respectively.
         </p>
 
-        <div class="results-table-wrapper">
+        <div class="results-table-wrapper wide">
             <table>
                 <thead>
                     <tr>
                         <th>Method</th>
-                        <th>#Params.</th>
+                        <th>#Params.<br>(DiT)</th>
                         <th>#Reso.</th>
-                        <th>Overall &uarr;</th>
-                        <th>Global Style &uarr;</th>
-                        <th>Background Change &uarr;</th>
-                        <th>Local Change &uarr;</th>
-                        <th>Local Remove &uarr;</th>
-                        <th>Local Add &uarr;</th>
+                        <th>Overall&uarr;</th>
+                        <th>Global<br>Style &uarr;</th>
+                        <th>Background<br>Change &uarr;</th>
+                        <th>Local<br>Change &uarr;</th>
+                        <th>Local<br>Remove &uarr;</th>
+                        <th>Local<br>Add &uarr;</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="closed-source-row">
+                        <td>Runway Aleph</td>
+                        <td>-</td>
+                        <td>1280&times;720</td>
+                        <td>3.49</td>
+                        <td>3.72</td>
+                        <td>2.62</td>
+                        <td>4.18</td>
+                        <td>4.16</td>
+                        <td>2.78</td>
+                    </tr>
                     <tr>
-                        <td>VACE</td>
+                        <td>VACE <span class="method-citation">(Jiang et al., 2025)</span></td>
                         <td>14B</td>
                         <td>1280&times;720</td>
                         <td>1.57</td>
@@ -724,7 +735,7 @@
                         <td>1.26</td>
                     </tr>
                     <tr>
-                        <td>OmniVideo</td>
+                        <td>OmniVideo <span class="method-citation">(Tan et al., 2025)</span></td>
                         <td>1.3B</td>
                         <td>640&times;352</td>
                         <td>1.19</td>
@@ -735,7 +746,7 @@
                         <td>1.36</td>
                     </tr>
                     <tr>
-                        <td>InsViE</td>
+                        <td>InsViE <span class="method-citation">(Wu et al., 2025b)</span></td>
                         <td>2B</td>
                         <td>720&times;480</td>
                         <td>1.45</td>
@@ -746,7 +757,7 @@
                         <td>1.17</td>
                     </tr>
                     <tr>
-                        <td>Lucy-Edit</td>
+                        <td>Lucy-Edit <span class="method-citation">(Team, 2025)</span></td>
                         <td>5B</td>
                         <td>1280&times;704</td>
                         <td>2.22</td>
@@ -757,7 +768,7 @@
                         <td>2.30</td>
                     </tr>
                     <tr>
-                        <td>ICVE</td>
+                        <td>ICVE <span class="method-citation">(Liao et al., 2025)</span></td>
                         <td>13B</td>
                         <td>384&times;240</td>
                         <td>2.18</td>
@@ -768,18 +779,18 @@
                         <td>1.97</td>
                     </tr>
                     <tr>
-                        <td>DITTO</td>
+                        <td>DITTO <span class="method-citation">(Bai et al., 2025a)</span></td>
                         <td>14B</td>
                         <td>832&times;480</td>
                         <td>2.13</td>
-                        <td>4.01</td>
+                        <td><strong>4.01</strong></td>
                         <td>1.68</td>
                         <td>2.03</td>
                         <td>1.53</td>
                         <td>1.41</td>
                     </tr>
                     <tr>
-                        <td>OpenVE-Edit</td>
+                        <td>OpenVE-Edit <span class="method-citation">(He et al., 2025)</span></td>
                         <td>5B</td>
                         <td>1280&times;704</td>
                         <td>2.50</td>
@@ -789,106 +800,169 @@
                         <td>1.85</td>
                         <td>2.15</td>
                     </tr>
-                    <tr style="background-color:#E6F2FF;">
-                        <td><b>Ours</b> (Stage-2 Instruct-Only)</td>
+                    <tr>
+                        <td>ReCo <span class="method-citation">(Zhang et al., 2025)</span></td>
+                        <td>2.1B</td>
+                        <td>832&times;480</td>
+                        <td>2.80</td>
+                        <td><span class="second-best">3.96</span></td>
+                        <td>1.92</td>
+                        <td>3.70</td>
+                        <td>2.24</td>
+                        <td>2.17</td>
+                    </tr>
+                    <tr>
+                        <td>UniVideo <span class="method-citation">(Wei et al., 2025)</span></td>
+                        <td>14B</td>
+                        <td>854&times;480</td>
+                        <td><span class="second-best">3.02</span></td>
+                        <td>3.67</td>
+                        <td>2.51</td>
+                        <td>3.79</td>
+                        <td><strong>2.73</strong></td>
+                        <td><span class="second-best">2.40</span></td>
+                    </tr>
+                    <tr class="ours-row section-start">
+                        <td><strong>Ours</strong> (Stage-2 Instruct-Only)</td>
                         <td>5B</td>
                         <td>720&times;480</td>
                         <td>2.92</td>
                         <td>3.54</td>
+                        <td><span class="second-best">2.59</span></td>
                         <td>3.80</td>
-                        <td>2.59</td>
                         <td>2.55</td>
                         <td>2.12</td>
                     </tr>
-                    <tr style="background-color:#E6F2FF;">
-                        <td><b>Ours</b> (Stage-2 Instruct-Only)</td>
+                    <tr class="ours-row">
+                        <td><strong>Ours</strong> (Stage-2 Instruct-Only)</td>
                         <td>5B</td>
                         <td>1280&times;704</td>
                         <td>2.98</td>
                         <td>3.54</td>
-                        <td>3.84</td>
                         <td>2.57</td>
-                        <td>2.71</td>
+                        <td><span class="second-best">3.84</span></td>
+                        <td><span class="second-best">2.71</span></td>
                         <td>2.25</td>
                     </tr>
-                    <tr style="background-color:#E6F2FF;">
-                        <td><b>Ours</b> (Stage-3 Instruct-Reference)</td>
+                    <tr class="ours-row">
+                        <td><strong>Ours</strong> (Stage-3 Instruct-Reference)</td>
                         <td>5B</td>
                         <td>1280&times;704</td>
-                        <td>3.02</td>
-                        <td>3.64</td>
-                        <td>2.64</td>
-                        <td>3.83</td>
-                        <td>2.63</td>
-                        <td>2.36</td>
+                        <td><strong>3.11</strong></td>
+                        <td>3.72</td>
+                        <td><strong>2.67</strong></td>
+                        <td><strong>3.91</strong></td>
+                        <td>2.69</td>
+                        <td><strong>2.55</strong></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <h2>RefVIE-Bench</h2>
-        <p class="text">
-            We report subject-reference and background-reference evaluation scores on RefVIE-Bench. The table summarizes identity/temporal/physical consistency for subject guidance, reference similarity/matting/video quality for background guidance, and an overall score.
+        <p class="text table-caption">
+            <em>Table 3.</em> Comparison on RefVIE-Bench with <em>Gemini-3-Flash</em> as Judge Model.
         </p>
 
-        <div class="results-table-wrapper">
+        <div class="results-table-wrapper wide">
             <table>
                 <thead>
                     <tr>
                         <th rowspan="2">Model</th>
-                        <th colspan="3">Subject Reference</th>
-                        <th colspan="3">Background Reference</th>
-                        <th rowspan="2">Overall</th>
+                        <th rowspan="2">#Params.(DiT)</th>
+                        <th colspan="4">Subject Reference</th>
+                        <th colspan="4">Background Reference</th>
+                        <th rowspan="2">Overall&uarr;</th>
                     </tr>
                     <tr>
-                        <th>Identity Consist.</th>
-                        <th>Temporal Consist.</th>
-                        <th>Physical Consist.</th>
-                        <th>Reference Sim.</th>
-                        <th>Matting Quality</th>
-                        <th>Video Quality</th>
+                        <th>Identity<br>Consist.</th>
+                        <th>Temporal<br>Consist.</th>
+                        <th>Physical<br>Consist.</th>
+                        <th>Subj.<br>Avg.</th>
+                        <th>Refer.<br>Sim.</th>
+                        <th>Matting<br>Quality</th>
+                        <th>Video<br>Quality</th>
+                        <th>BG<br>Avg.</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="closed-source-row">
                         <td>Runway Aleph</td>
+                        <td>-</td>
                         <td>3.79</td>
                         <td>3.65</td>
                         <td>3.58</td>
+                        <td>3.67</td>
                         <td>3.33</td>
                         <td>2.81</td>
                         <td>2.58</td>
+                        <td>2.91</td>
                         <td>3.29</td>
                     </tr>
-                    <tr>
-                        <td>Kling-O1</td>
+                    <tr class="closed-source-row">
+                        <td>Kling-O1 <span class="method-citation">(Team et al., 2025)</span></td>
+                        <td>-</td>
                         <td>4.75</td>
                         <td>4.66</td>
                         <td>4.60</td>
+                        <td>4.67</td>
                         <td>3.95</td>
                         <td>3.21</td>
                         <td>2.75</td>
+                        <td>3.30</td>
                         <td>3.99</td>
                     </tr>
-                    <tr style="background-color:#E6F2FF;">
-                        <td><b>Ours</b> (All data)</td>
+                    <tr>
+                        <td>UniVideo <span class="method-citation">(Wei et al., 2025)</span></td>
+                        <td>14B</td>
+                        <td><span class="second-best">4.17</span></td>
+                        <td><strong>3.79</strong></td>
+                        <td><strong>3.59</strong></td>
+                        <td><strong>3.85</strong></td>
+                        <td>3.13</td>
+                        <td>2.55</td>
+                        <td>2.28</td>
+                        <td><span class="second-best">2.65</span></td>
+                        <td><strong>3.44</strong></td>
+                    </tr>
+                    <tr>
+                        <td>ReCo-Ref <span class="method-citation">(Zhang et al., 2025)</span></td>
+                        <td>2.1B</td>
+                        <td>3.65</td>
+                        <td>2.95</td>
+                        <td>2.70</td>
+                        <td>3.10</td>
+                        <td><span class="second-best">3.35</span></td>
+                        <td><strong>2.65</strong></td>
+                        <td><span class="second-best">2.38</span></td>
+                        <td><strong>2.79</strong></td>
+                        <td>3.00</td>
+                    </tr>
+                    <tr class="ours-row section-start">
+                        <td><strong>Ours</strong> (Stage-3 Instruct-Reference)</td>
+                        <td>5B</td>
                         <td>3.51</td>
                         <td>2.96</td>
                         <td>2.91</td>
-                        <td>3.40</td>
-                        <td>2.58</td>
-                        <td>2.40</td>
+                        <td>3.13</td>
+                        <td><strong>3.40</strong></td>
+                        <td><span class="second-best">2.58</span></td>
+                        <td><strong>2.40</strong></td>
+                        <td><strong>2.79</strong></td>
                         <td>2.96</td>
                     </tr>
-                    <tr style="background-color:#E6F2FF;">
-                        <td><b>Ours</b> (Ref. data only)</td>
-                        <td>3.98</td>
-                        <td>3.40</td>
-                        <td>3.34</td>
-                        <td>3.72</td>
-                        <td>2.90</td>
-                        <td>2.51</td>
-                        <td>3.31</td>
+                    <tr class="ours-row">
+                        <td><strong>Ours</strong> (Stage-3 Reference. only)</td>
+                        <td>5B</td>
+                        <td><strong>4.28</strong></td>
+                        <td><span class="second-best">3.61</span></td>
+                        <td><span class="second-best">3.55</span></td>
+                        <td><span class="second-best">3.81</span></td>
+                        <td>3.33</td>
+                        <td>2.35</td>
+                        <td>2.08</td>
+                        <td>2.58</td>
+                        <td><span class="second-best">3.40</span></td>
                     </tr>
                 </tbody>
             </table>
