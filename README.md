@@ -128,6 +128,21 @@ or
 bash install_diffusers_env.sh
 ```
 
+
+### **Python 3.12.6 Environment Requirements**
+- Python 3.10 + CUDA 12.8 environment
+- Tested on L40S GPU
+- PyTorch==2.7, Accelerate
+- For training: DeepSpeed, FlashAttention
+
+### Full Environment Installation
+```
+pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu128
+pip install diffusers==0.38.0 einops accelerate transformers==4.57.0 opencv-python av decord deepspeed mpi4py
+pip install torchcodec==0.7 ffmpeg==1.4 imageio-ffmpeg==0.6.0
+```
+
+
 **Diffusers model zoo:**
 
 | Model | Type | Hugging Face |
